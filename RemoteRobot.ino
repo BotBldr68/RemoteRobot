@@ -1,7 +1,7 @@
 //  Integration of motor driver and remote ir control
 //  Authors: Paige Dungan, and Scott Dungan
-//  Date: 24  May 2015
-//  Version 0.1
+//  Date: 24  May 2015 Version 0.1
+//  Revision: 30 June 2015 Version 0.2
 //
 //
 
@@ -25,8 +25,8 @@ void setup()
 	/*Configure the motor A to control the wheel at the left side.*/
 	/*Configure the motor B to control the wheel at the right side.*/
 	motordriver.init();
-	motordriver.setSpeed(254,MOTORB);
-	motordriver.setSpeed(254,MOTORA);
+	motordriver.setSpeed(122,MOTORB);
+	motordriver.setSpeed(122,MOTORA);
 
         //Initialize the ir system
         My_Receiver.enableIRIn(); // Start the receiver
@@ -63,8 +63,8 @@ void loop()
           if (obstacleDetected == true){
               break;
           }        
-	  motordriver.setSpeed(180,MOTORB);
-	  motordriver.setSpeed(254,MOTORA);
+	  motordriver.setSpeed(90,MOTORB);
+	  motordriver.setSpeed(122,MOTORA);
           motordriver.goForward();
           movingForward = true;
           break;
@@ -72,8 +72,8 @@ void loop()
 	  if (obstacleDetected == true){
             break;
           }
-          motordriver.setSpeed(254,MOTORB);
-	  motordriver.setSpeed(254,MOTORA);
+          motordriver.setSpeed(122,MOTORB);
+	  motordriver.setSpeed(122,MOTORA);
           motordriver.goForward();
           movingForward = true;
           break;
@@ -81,38 +81,38 @@ void loop()
           if (obstacleDetected == true){
               break;
           }
-	  motordriver.setSpeed(254,MOTORB);
-	  motordriver.setSpeed(180,MOTORA);
+	  motordriver.setSpeed(122,MOTORB);
+	  motordriver.setSpeed(90,MOTORA);
           motordriver.goForward();
           movingForward = true;
           break;
         case 0xf624:  //button 4 - left
-	  motordriver.setSpeed(100,MOTORB);
-	  motordriver.setSpeed(100,MOTORA);
+	  motordriver.setSpeed(80,MOTORB);
+	  motordriver.setSpeed(80,MOTORA);
           motordriver.goLeft();
           movingForward = false;
           break;
         case 0xf664:  //button 6 - right
-	  motordriver.setSpeed(100,MOTORB);
-	  motordriver.setSpeed(100,MOTORA);
+	  motordriver.setSpeed(80,MOTORB);
+	  motordriver.setSpeed(80,MOTORA);
           motordriver.goRight();
           movingForward = false;
           break;
         case 0xf614:  //button 8 - reverse
-	  motordriver.setSpeed(254,MOTORB);
-	  motordriver.setSpeed(254,MOTORA);          
+	  motordriver.setSpeed(122,MOTORB);
+	  motordriver.setSpeed(122,MOTORA);          
           motordriver.goBackward();
           movingForward = false;
           break;
         case 0xf6e4:  //button 7 - reverse half left
-	  motordriver.setSpeed(180,MOTORB);
-	  motordriver.setSpeed(254,MOTORA);          
+	  motordriver.setSpeed(90,MOTORB);
+	  motordriver.setSpeed(122,MOTORA);          
           motordriver.goBackward();
           movingForward = false;
           break;
         case 0xf694:  //button 9 - reverse half right
-	  motordriver.setSpeed(254,MOTORB);
-	  motordriver.setSpeed(180,MOTORA);          
+	  motordriver.setSpeed(122,MOTORB);
+	  motordriver.setSpeed(90,MOTORA);          
           motordriver.goBackward();
           movingForward = false;
           break;          
